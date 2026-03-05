@@ -5,7 +5,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="bg-(--bg-color)">
         <Routes>
           {publicRoutes.map((route, index) => {
             const Page = route.component;
