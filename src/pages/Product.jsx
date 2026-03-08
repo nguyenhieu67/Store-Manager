@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 
 import { useFilter } from "../hooks/Filter";
@@ -41,6 +42,14 @@ function Product() {
           btnColor="bg-(--success)"
         />
       </Header>
+=======
+import Stats from "../components/Stats/Stats";
+import StatsCard from "../components/Stats/StatsCard";
+
+function Product() {
+  return (
+    <div className="flex-1">
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
       <Stats className="grid-cols-3">
         <StatsCard
           title="total product"
@@ -59,6 +68,7 @@ function Product() {
           borderLeft="border-(--primary-color)"
         />
       </Stats>
+<<<<<<< HEAD
       <Table
         title="Product catalog"
         options={
@@ -87,6 +97,8 @@ function Product() {
           },
         ]}
       />
+=======
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     </div>
   );
 }

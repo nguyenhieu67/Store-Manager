@@ -1,5 +1,6 @@
 import Stats from "../components/Stats/Stats";
 import StatsCard from "../components/Stats/StatsCard";
+<<<<<<< HEAD
 import Table from "../components/Table";
 import Header from "../layouts/components/Header";
 import { tableTitle, tableData } from "../data";
@@ -27,15 +28,24 @@ function Overview() {
           </svg>
         </div>
       </Header>
+=======
+
+function Overview() {
+  return (
+    <div className="flex-1">
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
       <Stats className="grid-cols-2">
         <StatsCard title="revenue" value="2.500.000đ" />
         <StatsCard title="new orders" value="12" />
       </Stats>
+<<<<<<< HEAD
       <Table
         title="Recent orders"
         tableTitles={overviewTitle}
         tableDatas={overviewData}
       />
+=======
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     </div>
   );
 }

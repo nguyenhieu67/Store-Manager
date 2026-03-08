@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { TrendingDownIcon, TrendingUpIcon } from "../Icons";
 
+=======
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
 function StatsCard({
   title,
   value,
@@ -16,6 +19,7 @@ function StatsCard({
       <p className={`text-[28px] font-bold text-(--dark-color) ${className}`}>
         {value}
       </p>
+<<<<<<< HEAD
       {trendUp && (
         <p className="flex items-center gap-1 text-sm text-(--success)">
           <TrendingUpIcon color="#2ecc71" /> {trendUp}
@@ -26,6 +30,10 @@ function StatsCard({
           <TrendingDownIcon color="#e74c3c" /> {trendDown}
         </p>
       )}
+=======
+      {trendUp && <p className="text-sm text-(--success)">{trendUp}</p>}
+      {trendDown && <p className="text-sm text-(--danger)">{trendDown}</p>}
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     </div>
   );
 }

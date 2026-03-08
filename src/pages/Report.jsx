@@ -1,5 +1,6 @@
 import Stats from "../components/Stats/Stats";
 import StatsCard from "../components/Stats/StatsCard";
+<<<<<<< HEAD
 import Header from "../layouts/components/Header";
 import { useState } from "react";
 import { GetDateString } from "../components/Date";
@@ -42,6 +43,12 @@ function Report() {
         </div>
       </Header>
 
+=======
+
+function Report() {
+  return (
+    <div className="flex-1">
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
       <Stats className="grid-cols-4">
         <StatsCard
           title="revenue"
@@ -52,12 +59,15 @@ function Report() {
         <StatsCard title="profit" value="32.100.000đ" trendDown="2%" />
         <StatsCard title="new customers" value="84" trendUp="18%" />
       </Stats>
+<<<<<<< HEAD
       <Chart />
       <Table
         title="Best-selling product"
         tableTitles={reportTitle}
         tableDatas={reportData}
       />
+=======
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     </div>
   );
 }

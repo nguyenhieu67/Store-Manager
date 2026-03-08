@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { twMerge } from "tailwind-merge";
 
 function Button({
@@ -11,6 +12,10 @@ function Button({
   onClick,
   ...passProps
 }) {
+=======
+
+function Button({ to, href, children, className, onClick, ...passProps }) {
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
   let Comp = "button";
   const props = {
     onClick,
@@ -25,6 +30,7 @@ function Button({
     Comp = "a";
   }
 
+<<<<<<< HEAD
   return (
     <Comp
       className={twMerge(
@@ -37,6 +43,9 @@ function Button({
       {rightIcon && <span className="icon">{rightIcon}</span>}
     </Comp>
   );
+=======
+  return <Comp className={className}>{children}</Comp>;
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
 }
 
 export default Button;

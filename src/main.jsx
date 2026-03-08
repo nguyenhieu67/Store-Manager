@@ -4,7 +4,13 @@ import "./index.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
+<<<<<<< HEAD
   // <StrictMode>
   <App />,
   // </StrictMode>,
+=======
+  <StrictMode>
+    <App />
+  </StrictMode>,
+>>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
 );
