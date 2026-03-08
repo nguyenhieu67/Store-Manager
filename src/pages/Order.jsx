@@ -98,7 +98,14 @@ function Order() {
             ))}
           </div>
         }
-        options={<input type="date" value={date} onChange={handleChange} />}
+        options={
+          <input
+            className="rounded-[5px] border border-solid border-[#ddd] p-2"
+            type="date"
+            value={date}
+            onChange={handleChange}
+          />
+        }
         tableTitles={orderTitle}
         tableDatas={filteredOrderData}
         actions={[

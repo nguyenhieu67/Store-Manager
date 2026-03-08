@@ -44,6 +44,7 @@ function Client() {
         title="Recent orders"
         options={
           <select
+            className="cursor-pointer rounded-md border border-[#eee] p-1 text-sm outline-none"
             value={filterRank}
             onChange={(e) => setFilterRank(e.target.value)}
           >

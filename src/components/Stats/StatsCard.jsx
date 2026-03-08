@@ -26,8 +26,6 @@ function StatsCard({
           <TrendingDownIcon color="#e74c3c" /> {trendDown}
         </p>
       )}
-      {trendUp && <p className="text-sm text-(--success)">{trendUp}</p>}
-      {trendDown && <p className="text-sm text-(--danger)">{trendDown}</p>}
     </div>
   );
 }

@@ -11,18 +11,12 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
-<<<<<<< HEAD
     "chart.js": "^4.5.1",
     "react": "^19.2.0",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.1",
     "tailwind-merge": "^3.5.0",
-=======
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.13.1",
->>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
