@@ -1,6 +1,5 @@
 import Stats from "../components/Stats/Stats";
 import StatsCard from "../components/Stats/StatsCard";
-<<<<<<< HEAD
 import Header from "../layouts/components/Header";
 import Search from "../layouts/components/Search";
 import Table from "../components/Table";
@@ -36,18 +35,11 @@ function Client() {
           btnColor="bg-(--success)"
         />
       </Header>
-=======
-
-function Client() {
-  return (
-    <div className="flex-1">
->>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
       <Stats className="grid-cols-3">
         <StatsCard title="total customers" value="850" />
         <StatsCard title="new customers(monthly)" value="42" />
         <StatsCard title="return rate" value="65%" />
       </Stats>
-<<<<<<< HEAD
       <Table
         title="Recent orders"
         options={
@@ -74,8 +66,6 @@ function Client() {
           },
         ]}
       />
-=======
->>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     </div>
   );
 }

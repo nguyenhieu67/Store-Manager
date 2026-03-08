@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from "react";
 
 import { useFilter } from "../hooks/Filter";
@@ -59,14 +58,6 @@ function Order() {
           btnColor="bg-(--primary-color)"
         />
       </Header>
-=======
-import Stats from "../components/Stats/Stats";
-import StatsCard from "../components/Stats/StatsCard";
-
-function Order() {
-  return (
-    <div className="flex-1">
->>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
       <Stats className="grid-cols-4">
         <StatsCard
           title="total product"
@@ -89,7 +80,6 @@ function Order() {
           borderLeft="border-(--danger)"
         />
       </Stats>
-<<<<<<< HEAD
       <Table
         custom={
           <div className="flex flex-wrap gap-2.5">
@@ -156,8 +146,6 @@ function Order() {
           },
         ]}
       />
-=======
->>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
     </div>
   );
 }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Fragment } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -160,10 +159,6 @@ function Table({ title, custom, options, tableTitles, tableDatas, actions }) {
       </div>
     </section>
   );
-=======
-function Table() {
-  return <></>;
->>>>>>> 8e3a0ff56c6e239c25a393ccb40d11502ddc2bd7
 }
 
 export default Table;
