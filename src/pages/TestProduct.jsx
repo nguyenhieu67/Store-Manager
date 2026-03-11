@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const TestData = () => {
+  const API_URL = "https://store-managerapi.onrender.com/testProduct";
+
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -20,20 +22,16 @@ const TestData = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const payload = {
+      ...formData,
+      price: Number(formData.price),
+      stock: Number(formData.stock),
+    };
     try {
-      const payload = {
-        ...formData,
-        price: Number(formData.price),
-        stock: Number(formData.stock),
-      };
-
-      const response = await axios.post(
-        "https://store-managerapi.onrender.com/testProduct",
-        payload,
-      );
+      const response = await axios.post(API_URL, payload);
 
       alert("Thêm thành công!");
-      setProducts([...products, response.data]);
+      setProducts((prevProducts) => [...prevProducts, response.data]);
 
       setFormData({
         name: "",
@@ -54,9 +52,7 @@ const TestData = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
-          "https://store-managerapi.onrender.com/testProduct",
-        );
+        const response = await axios.get(API_URL);
         setProducts(response.data);
         setLoading(false);
       } catch (error) {
@@ -71,9 +67,7 @@ const TestData = () => {
   const handleDelete = async (id) => {
     try {
       if (confirm("Bạn có chắc muốn xóa không")) {
-        await axios.delete(
-          `https://store-managerapi.onrender.com/testProduct/${id}`,
-        );
+        await axios.delete(`${API_URL}/${id}`);
         setProducts((prev) => prev.filter((p) => p._id !== id));
       }
     } catch (error) {
