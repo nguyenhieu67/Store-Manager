@@ -28,7 +28,7 @@ const TestData = () => {
       };
 
       const response = await axios.post(
-        "https://store-managerapi.onrender.com/testProducts",
+        "https://store-managerapi.onrender.com/testProduct",
         payload,
       );
 
@@ -55,7 +55,7 @@ const TestData = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://store-managerapi.onrender.com/testProducts",
+          "https://store-managerapi.onrender.com/testProduct",
         );
         setProducts(response.data);
         setLoading(false);
@@ -72,7 +72,7 @@ const TestData = () => {
     try {
       if (confirm("Bạn có chắc muốn xóa không")) {
         await axios.delete(
-          `https://store-managerapi.onrender.com/testProducts/${id}`,
+          `https://store-managerapi.onrender.com/testProduct/${id}`,
         );
         setProducts((prev) => prev.filter((p) => p._id !== id));
       }
