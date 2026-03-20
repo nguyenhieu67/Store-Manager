@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useFilter } from "../hooks/Filter";
+import { useFilter } from "../hooks/useFilter";
 import {
   ViewIcon,
   PrinterIcon,

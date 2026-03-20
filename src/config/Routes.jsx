@@ -4,7 +4,6 @@ const routes = {
   order: "/order",
   client: "/client",
   report: "/report",
-  testProduct: "/testProduct",
 };
 
 export default routes;

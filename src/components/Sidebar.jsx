@@ -33,11 +33,6 @@ const data = [
     path: "/report",
     title: "Report",
   },
-  {
-    icon: <ReportIcon />,
-    path: "/testProduct",
-    title: "Test Product",
-  },
 ];
 
 function Sidebar() {

@@ -1,7 +1,18 @@
 import { Fragment } from "react";
 import { twMerge } from "tailwind-merge";
 
-function Table({ title, custom, options, tableTitles, tableDatas, actions }) {
+function Table({
+  title,
+  custom,
+  options,
+  tableTitles,
+  tableDatas,
+  productData,
+  clientData,
+  actions,
+  loading,
+  maxHeight,
+}) {
   const getStatusStyle = (status) => {
     switch (status.toLowerCase()) {
       case "success":
@@ -33,8 +44,24 @@ function Table({ title, custom, options, tableTitles, tableDatas, actions }) {
     }
   };
 
+  const getRankStyles = (orderCount) => {
+    const order = Number(orderCount) || 0;
+
+    if (order >= 31) {
+      return "bg-(--gold)";
+    } else if (order >= 11) {
+      return "bg-(--silver)";
+    } else if (order >= 0) {
+      return "bg-(--bronze)";
+    }
+
+    return "";
+  };
+
   return (
-    <section className="flex flex-col rounded-xl bg-white shadow-[0_4px_6px_rgba(0,0,0,0.02)]">
+    <section
+      className={`flex flex-col rounded-xl bg-white shadow-[0_4px_6px_rgba(0,0,0,0.02)] ${maxHeight}`}
+    >
       <div className="sticky z-10 flex items-center justify-between rounded-t-xl border-b border-solid border-[#eee] bg-white p-5">
         {title && <h3 className="text-[20px] font-bold">{title}</h3>}
         {custom && custom}
@@ -57,6 +84,126 @@ function Table({ title, custom, options, tableTitles, tableDatas, actions }) {
             </tr>
           </thead>
           <tbody>
+            {loading ? (
+              <tr>
+                <td
+                  colSpan={tableTitles?.length || 5}
+                  className="p-10 text-center text-gray-400"
+                >
+                  Loading resources.
+                </td>
+              </tr>
+            ) : loading && !productData.length ? (
+              <tr>
+                <td
+                  colSpan={tableTitles?.length || 5}
+                  className="p-10 text-center text-gray-400"
+                >
+                  No products are available.
+                </td>
+              </tr>
+            ) : productData ? (
+              productData.map((p, index) => (
+                <tr key={index}>
+                  {p.imageUrl && p.imageUrl ? (
+                    <td>
+                      <img
+                        src={p.imageUrl}
+                        alt={p.name}
+                        className="h-11.25 w-11.25 rounded-md object-cover"
+                      />
+                    </td>
+                  ) : (
+                    <td>
+                      <img
+                        src="https://picsum.photos/200"
+                        alt={p.name}
+                        className="h-11.25 w-11.25 rounded-md object-cover"
+                      />
+                    </td>
+                  )}
+                  {p.name && <td>{p.name}</td>}
+                  {p.category && <td>{p.category}</td>}
+                  {p.price && <td>{p.price}</td>}
+                  {p.stock && <td>{p.stock}</td>}
+                  <td>
+                    <div>
+                      {actions.map((action, index) => {
+                        return (
+                          <button
+                            key={index}
+                            className={twMerge(
+                              "mr-1.25 cursor-pointer rounded-[5px] border-none p-2 transition hover:bg-(--primary-color) hover:text-white",
+                              action.bgColor || "bg-[#ebebeb]",
+                            )}
+                            onClick={() =>
+                              action.onClick
+                                ? action.onClick(p)
+                                : console.log("")
+                            }
+                          >
+                            {action.icon}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              clientData &&
+              clientData.map((c, index) => {
+                const displayRank =
+                  c.order >= 31 ? "Gold" : c.order >= 11 ? "Silver" : "Bronze";
+
+                return (
+                  <tr key={index}>
+                    {c.fullName && (
+                      <td>
+                        {c.fullName}(ID: CUST-00{`${index + 1}`})
+                      </td>
+                    )}
+                    {c.email && c.phone && (
+                      <td>
+                        {c.email} ({c.phone})
+                      </td>
+                    )}
+                    {c.rank && (
+                      <td>
+                        <span
+                          className={`${getRankStyles(c.order)} rounded-sm px-2.5 py-1 text-[12px] font-bold text-white uppercase`}
+                        >
+                          {displayRank}
+                        </span>
+                      </td>
+                    )}
+                    {c.order === null ? 0 : <td>{c.order}</td>}
+                    {c.totalSpending === null ? (
+                      `0$`
+                    ) : (
+                      <td>{c.totalSpending}$</td>
+                    )}
+                    <td>
+                      <div>
+                        {actions.map((action, index) => {
+                          return (
+                            <button
+                              key={index}
+                              className={twMerge(
+                                "mr-1.25 cursor-pointer rounded-[5px] border-none p-2 transition hover:bg-(--primary-color) hover:text-white",
+                                action.bgColor || "bg-[#ebebeb]",
+                              )}
+                            >
+                              {action.icon}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
             {tableDatas &&
               tableDatas.map((data, index) => (
                 <tr key={index}>
